@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.project9"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.project9"
@@ -59,9 +59,14 @@ dependencies {
     // firebase
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
-    implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
+    implementation(platform("com.google.firebase:firebase-bom:32.7.0"))
     implementation("com.google.firebase:firebase-analytics")
 
+    implementation("com.google.firebase:firebase-auth:21.0.1")
+
     // firebase ui
-    implementation("com.firebaseui:firebase-ui-auth:6.2.1")
+    implementation("com.firebaseui:firebase-ui-auth:7.2.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
 }

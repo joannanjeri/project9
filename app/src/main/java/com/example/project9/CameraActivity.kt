@@ -7,8 +7,10 @@ import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.util.UUID
 
+/**
+ * activity for capturing and uploading images to Firebase Storage
+ */
 class CameraActivity : AppCompatActivity() {
-    // firebase storage reference
     private val storageReference = FirebaseStorage.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,11 +21,16 @@ class CameraActivity : AppCompatActivity() {
         // camera x for images
 
         // handle for image capture
-        captureButton.setOnClickListener {
-            uploadImageToStorage(capturedImageBitmap)
-        }
+//        captureButton.setOnClickListener {
+//            uploadImageToStorage(capturedImageBitmap)
+//        }
     }
 
+    /**
+     * uploads an image to Firebase Storage
+     *
+     * @param bitmap the bitmap image to upload
+     */
     private fun uploadImageToStorage(bitmap: Bitmap?) {
         val imageRef = storageReference.child("images/${ UUID.randomUUID()}.jpg")
         val baos = ByteArrayOutputStream()
@@ -32,11 +39,9 @@ class CameraActivity : AppCompatActivity() {
 
         val uploadTask = imageRef.putBytes(data)
         uploadTask.addOnSuccessListener { taskSnapshot ->
-            // image uploaded successfully
-            // todo: add any additional logic here
+
         }.addOnFailureListener { exception ->
-            // handle failed image upload
-            // todo: add error handling logic here
+
         }
     }
 
